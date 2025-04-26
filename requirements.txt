@@ -1,0 +1,21 @@
+# ConsultEase Python Requirements
+
+# Firebase integration
+firebase-admin==6.2.0
+pyrebase4==4.6.1
+google-cloud-firestore==2.11.1
+python-dotenv==0.21.1
+
+# UI components
+PyQt6==6.6.0
+
+# RFID hardware
+adafruit-circuitpython-pn532==2.3.6
+pyserial==3.5
+
+# MQTT communication
+paho-mqtt==1.6.1
+
+# Utilities
+requests==2.28.2
+pillow==9.4.0

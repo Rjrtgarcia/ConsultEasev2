@@ -1,0 +1,224 @@
+/* ConsultEase Central System - Gold & Blue Theme */
+
+/* --- Color Palette --- */
+/* Blue (Primary/Background): #0B2447 */
+/* Blue (Secondary/Widget Background): #19376D */
+/* Blue (Text/Accents): #576CBC */
+/* Gold (Highlights/Borders/Accents): #FFD700 */
+/* Text (General): #FFFFFF */
+/* Text (Alternative): #A5D7E8 */
+
+/* --- General Styles --- */
+QWidget {
+    background-color: #0B2447; /* Dark Navy Background */
+    color: #FFFFFF; /* White Text */
+    font-family: Segoe UI, Arial, sans-serif; /* System Font */
+    font-size: 11pt; /* Slightly larger for touch */
+}
+
+QMainWindow, QDialog {
+    background-color: #0B2447;
+}
+
+/* --- Labels --- */
+QLabel {
+    color: #A5D7E8; /* Light Blue/Grey Text */
+    padding: 5px;
+    background-color: transparent; /* Ensure labels don't have their own background unless specified */
+}
+
+QLabel#titleLabel { /* Example for a specific important label */
+    color: #FFD700; /* Gold */
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+QLabel#errorLabel { /* Example for error messages */
+    color: #FF6B6B; /* Reddish color for errors */
+    font-size: 10pt;
+}
+
+
+/* --- Buttons --- */
+QPushButton {
+    background-color: #19376D; /* Secondary Blue */
+    color: #FFFFFF;
+    border: 1px solid #576CBC; /* Lighter Blue Border */
+    padding: 8px 15px;
+    min-height: 25px; /* Ensure buttons are touch-friendly */
+    border-radius: 4px;
+    font-size: 11pt;
+}
+
+QPushButton:hover {
+    background-color: #576CBC; /* Lighter Blue on Hover */
+    border: 1px solid #FFD700; /* Gold Border on Hover */
+}
+
+QPushButton:pressed {
+    background-color: #0B2447; /* Darker Blue when Pressed */
+    border: 1px solid #FFD700;
+}
+
+QPushButton:disabled {
+    background-color: #405D8A; /* Greyed out blue */
+    color: #90A0B5;
+    border: 1px solid #405D8A;
+}
+
+/* --- Input Fields --- */
+QLineEdit, QTextEdit {
+    background-color: #19376D; /* Secondary Blue */
+    color: #FFFFFF;
+    border: 1px solid #576CBC; /* Lighter Blue Border */
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 11pt;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 1px solid #FFD700; /* Gold Border on Focus */
+}
+
+QLineEdit:read-only, QTextEdit:read-only {
+    background-color: #405D8A; /* Greyed out blue */
+}
+
+
+/* --- Table View --- */
+QTableWidget, QTableView {
+    background-color: #19376D; /* Secondary Blue */
+    color: #FFFFFF;
+    border: 1px solid #576CBC;
+    gridline-color: #576CBC; /* Grid lines */
+    selection-background-color: #576CBC; /* Selection Background */
+    selection-color: #FFFFFF; /* Selection Text */
+    alternate-background-color: #1F4287; /* Slightly different for alternate rows */
+}
+
+QHeaderView::section {
+    background-color: #0B2447; /* Dark Navy Header */
+    color: #FFD700; /* Gold Text */
+    padding: 5px;
+    border: 1px solid #576CBC;
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+QTableWidget::item, QTableView::item {
+    padding: 5px;
+}
+
+/* --- List Widget --- */
+QListWidget {
+    background-color: #19376D; /* Secondary Blue */
+    color: #FFFFFF;
+    border: 1px solid #576CBC;
+    padding: 5px;
+}
+
+QListWidget::item {
+    padding: 5px 0px; /* Add vertical padding */
+}
+
+QListWidget::item:selected {
+    background-color: #FFD700; /* Gold Background for selected item */
+    color: #0B2447; /* Dark Text for selected item */
+    border: none; /* Remove border for selected item if needed */
+}
+
+QListWidget::item:hover {
+    background-color: #576CBC; /* Lighter Blue on Hover */
+}
+
+/* --- Scroll Bars --- */
+QScrollBar:vertical {
+    border: 1px solid #576CBC;
+    background: #19376D;
+    width: 15px;
+    margin: 15px 0 15px 0;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #576CBC;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #FFD700; /* Gold on hover */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: 1px solid #576CBC;
+    background: #19376D;
+    height: 14px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+    border-radius: 4px;
+}
+QScrollBar::add-line:vertical:hover, QScrollBar::sub-line:vertical:hover {
+    background: #576CBC;
+}
+
+
+QScrollBar::add-line:vertical {
+    subcontrol-position: bottom;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    /* Use images or leave blank */
+     border: none;
+     width: 3px;
+     height: 3px;
+     background: #A5D7E8; /* Arrow color */
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+/* Horizontal Scrollbar - Similar styling */
+QScrollBar:horizontal {
+    border: 1px solid #576CBC;
+    background: #19376D;
+    height: 15px;
+    margin: 0 15px 0 15px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #576CBC;
+    min-width: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #FFD700; /* Gold on hover */
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    border: 1px solid #576CBC;
+    background: #19376D;
+    width: 14px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+    border-radius: 4px;
+}
+QScrollBar::add-line:horizontal:hover, QScrollBar::sub-line:horizontal:hover {
+    background: #576CBC;
+}
+
+QScrollBar::add-line:horizontal {
+    subcontrol-position: right;
+}
+
+QScrollBar::left-arrow:horizontal, QScrollBar::right-arrow:horizontal {
+     border: none;
+     width: 3px;
+     height: 3px;
+     background: #A5D7E8; /* Arrow color */
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
