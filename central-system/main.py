@@ -10,14 +10,14 @@ import os # For MQTT config path
 
 # Adjust the path to import from the ui directory if necessary,
 # depending on how you run the script.
-# If running from the root 'ConsultEase' directory:
-from central_system.ui.main_window import MainWindow
-from central_system.database.firebase_client import FirebaseClient, FIREBASE_AVAILABLE
-from central_system.comms.mqtt_client import MQTTClient, MQTT_AVAILABLE
-# If running directly from 'central-system' directory, you might need:
-# from ui.main_window import MainWindow
-# from database.firebase_client import FirebaseClient
-# from comms.mqtt_client import MQTTClient
+# If running from the root 'ConsultEase' directory (or directly from central-system):
+from ui.main_window import MainWindow                     # Relative import
+from database.firebase_client import FirebaseClient, FIREBASE_AVAILABLE # Relative import
+from comms.mqtt_client import MQTTClient, MQTT_AVAILABLE         # Relative import
+# Original absolute imports (commented out for reference):
+# from central_system.ui.main_window import MainWindow
+# from central_system.database.firebase_client import FirebaseClient, FIREBASE_AVAILABLE
+# from central_system.comms.mqtt_client import MQTTClient, MQTT_AVAILABLE
 
 # Basic logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

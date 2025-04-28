@@ -118,11 +118,17 @@ For a more detailed description, see [documentation/ARCHITECTURE.md](documentati
 
 1.  **Start MQTT Broker:** Ensure your MQTT broker is running (e.g., Mosquitto on the Raspberry Pi or a cloud service).
 2.  **Run Central System:**
-    *   Navigate to the project root directory on the Raspberry Pi.
-    *   Execute the main application:
-        ```bash
-        python central-system/main.py
-        ```
+    *   Execute the main application using one of the following methods:
+        *   **From the project root directory (`ConsultEase/`):**
+            ```bash
+            python central-system/main.py
+            ```
+        *   **From the `central-system` directory:**
+            ```bash
+            cd central-system
+            python main.py
+            ```
+    *   *(Note: The relative imports in `central-system/main.py` have been adjusted to support both methods.)*
     *   For Kiosk mode (optional, requires setup): Configure the Pi to automatically launch the script on boot, potentially hiding the desktop environment. Ensure `squeekboard` is configured if needed for text input (like in the Admin Panel).
 3.  **Power Faculty Unit:** Connect the flashed ESP32 Faculty Unit to power. It should automatically connect to Wi-Fi, MQTT, and start displaying information and scanning for its assigned BLE beacon.
 
