@@ -12,8 +12,8 @@ import os # For MQTT config path
 # depending on how you run the script.
 # If running from the root 'ConsultEase' directory (or directly from central-system):
 from ui.main_window import MainWindow                     # Relative import
-from database.firebase_client import FirebaseClient, FIREBASE_AVAILABLE # Relative import
-from comms.mqtt_client import MQTTClient, MQTT_AVAILABLE         # Relative import
+from database.firebase_client import FirebaseClient # Relative import
+from comms.mqtt_client import MQTTClient         # Relative import
 # Original absolute imports (commented out for reference):
 # from central_system.ui.main_window import MainWindow
 # from central_system.database.firebase_client import FirebaseClient, FIREBASE_AVAILABLE
@@ -34,32 +34,26 @@ def main():
 
         # --- Firebase Initialization ---
         firebase_client = None
-        if FIREBASE_AVAILABLE:
-            try:
-                # Assumes serviceAccountKey.json is findable by the client
-                firebase_client = FirebaseClient()
-                logging.info("FirebaseClient initialized successfully.")
-            except Exception as e:
-                logging.error(f"Failed to initialize FirebaseClient: {e}. Proceeding without Firebase integration.")
-        else:
-            logging.warning("Firebase libraries not installed. Proceeding without Firebase integration.")
+        try:
+            # Assumes serviceAccountKey.json is findable by the client
+            firebase_client = FirebaseClient()
+            logging.info("FirebaseClient initialized successfully.")
+        except Exception as e:
+            logging.error(f"Failed to initialize FirebaseClient: {e}. Proceeding without Firebase integration.")
 
         # --- MQTT Initialization ---
         mqtt_client = None
-        if MQTT_AVAILABLE:
-            try:
-                # Construct path relative to this script's location or project root
-                # Assuming main.py is in central-system/
-                config_path = os.path.join(os.path.dirname(__file__), '..', 'faculty-unit', 'config', 'config.h')
-                # A more robust way might be needed if structure changes
-                # Or pass absolute path or use environment variables
-                mqtt_client = MQTTClient(config_path=config_path) # Pass config path
-                logging.info("MQTTClient initialized.")
-                # Note: Connection is usually initiated later, e.g., in the UI component that needs it.
-            except Exception as e:
-                logging.error(f"Failed to initialize MQTTClient: {e}. Proceeding without MQTT integration.")
-        else:
-            logging.warning("Paho MQTT library not installed. Proceeding without MQTT integration.")
+        try:
+            # Construct path relative to this script's location or project root
+            # Assuming main.py is in central-system/
+            config_path = os.path.join(os.path.dirname(__file__), '..', 'faculty-unit', 'config', 'config.h')
+            # A more robust way might be needed if structure changes
+            # Or pass absolute path or use environment variables
+            mqtt_client = MQTTClient(config_path=config_path) # Pass config path
+            logging.info("MQTTClient initialized.")
+            # Note: Connection is usually initiated later, e.g., in the UI component that needs it.
+        except Exception as e:
+            logging.error(f"Failed to initialize MQTTClient: {e}. Proceeding without MQTT integration.")
 
 
         # --- Apply Stylesheet ---
